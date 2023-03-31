@@ -1,11 +1,11 @@
+import "./CandidateItem.module.scss";
+
 const CandidateItem = ({ emailProp, avatarProp, nameProp }) => {
 	return (
 		<li>
-			<div>
-				<img src={avatarProp} alt="" />
-				<div>{nameProp}</div>
-				<div>{emailProp}</div>
-			</div>
+			<img src={avatarProp} alt="" />
+			<div>{nameProp}</div>
+			<div>{emailProp}</div>
 		</li>
 	);
 };

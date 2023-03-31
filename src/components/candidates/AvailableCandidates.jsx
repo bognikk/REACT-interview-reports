@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 import CandidatesItem from "./CandidateItem";
 
+import "./AvailableCandidates.module.scss";
+
 const AvailableCandidates = (props) => {
 	const [candidates, setCandidates] = useState([]);
 
@@ -28,7 +30,7 @@ const AvailableCandidates = (props) => {
 		fetchCandidates();
 	}, []);
 
-	const candidateList = candidates.map((candidate) => {
+	const candidateList = candidates.slice(0, 6).map((candidate) => {
 		return (
 			<CandidatesItem
 				key={candidate.id}
