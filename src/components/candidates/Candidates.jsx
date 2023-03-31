@@ -2,13 +2,14 @@ import React from "react";
 import CandidatesFilter from "./CandidatesFilter";
 import AvailableCandidates from "./AvailableCandidates";
 
+import classes from "./Candidates.module.scss";
+
 const Candidates = (props) => {
 	return (
-		<>
-			<h2>CANDIDATES</h2>
+		<section className={classes.candidates}>
 			<CandidatesFilter />
 			<AvailableCandidates />
-		</>
+		</section>
 	);
 };
 

@@ -1,5 +1,12 @@
+import classes from "./CandidatesFilter.module.scss";
+
 const CandidateFilter = (props) => {
-	return <h2>Cand FIlter</h2>;
+	return (
+		<section className={classes.filter}>
+			<h2>Candidates</h2>
+			<input type="text" placeholder="Search..." />
+		</section>
+	);
 };
 
 export default CandidateFilter;
