@@ -2,12 +2,6 @@ import CandidatesItem from "./CandidateItem";
 
 import "./AvailableCandidates.module.scss";
 
-// const searchCandidates = candidates
-// 	.filter((candidat) =>
-// 		candidat.name.toLowerCase().includes(searchValue.toLowerCase())
-// 	)
-// 	.map((candidat) => <CardCandidates candidat={candidat} key={candidat.id} />);
-
 const AvailableCandidates = ({ candidatesProp, searchValue }) => {
 	const candidateList = candidatesProp
 		.slice(0, 6)

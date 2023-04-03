@@ -7,7 +7,7 @@ const CandidateItem = ({ emailProp, avatarProp, nameProp, idProp }) => {
 			<Link to={`/reports/${idProp}`}>
 				<img src={avatarProp} alt="" />
 				<div>{nameProp}</div>
-				<div>{emailProp}</div>
+				<div>{emailProp.toLowerCase()}</div>
 			</Link>
 		</li>
 	);
