@@ -1,10 +1,14 @@
+import { Link } from "react-router-dom";
+
 import "./Header.module.scss";
 
 const Header = (props) => {
 	return (
 		<header>
 			<h2>Interviews Reports</h2>
-			<button>Candidates</button>
+			<Link to="/">
+				<button>Candidates</button>
+			</Link>
 		</header>
 	);
 };

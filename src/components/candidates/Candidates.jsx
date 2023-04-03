@@ -7,10 +7,9 @@ import classes from "./Candidates.module.scss";
 
 const Candidates = (props) => {
 	const [candidates, setCandidates] = useState([]);
-	const [filteredCandidates, setfilteredCandidates] = useState([]);
+	// const [filteredCandidates, setfilteredCandidates] = useState([]);
 
 	useEffect(() => {
-		//povlacimo sve candidates i dodeljujemo u candidates state
 		const fetchCandidates = async () => {
 			const response = await fetch("http://localhost:3333/api/candidates");
 
@@ -34,21 +33,31 @@ const Candidates = (props) => {
 	}, []);
 
 	const filterCandidates = (value) => {
-		const filtered = candidates.filter((cand) =>
-			cand.name.toLowerCase().includes(value.toLowerCase())
+		const filteringList = [...candidates];
+		let filtered = filteringList.filter(
+			(cand) => {
+				return cand.name.toLowerCase().indexOf(value.toLowerCase()) !== -1;
+			}
+			// cand.name.toLowerCase().includes(value.toLowerCase())
 		);
 
 		if (value.trim() === "") {
-			setfilteredCandidates(candidates);
+			setCandidates(filteringList);
 		} else {
-			setfilteredCandidates(filtered);
+			setCandidates(filtered);
 		}
+
+		// if (value.trim() === "") {
+		// 	setfilteredCandidates(candidates);
+		// } else {
+		// 	setfilteredCandidates(filtered);
+		// }
 	};
 
 	return (
 		<section className={classes.candidates}>
 			<CandidatesFilter onFilter={filterCandidates} />
-			<AvailableCandidates candidatesProp={filteredCandidates.slice(0, 6)} />
+			<AvailableCandidates candidatesProp={candidates.slice(0, 6)} />
 		</section>
 	);
 };
