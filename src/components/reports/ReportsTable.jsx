@@ -1,3 +1,5 @@
+import classes from "./ReportsTable.module.scss";
+
 const ReportsTable = ({ reportProp }) => {
 	const tableBody = reportProp.map((report) => {
 		const fullDate = new Date(report.interviewDate);
@@ -13,7 +15,7 @@ const ReportsTable = ({ reportProp }) => {
 					<td>{date}</td>
 					<td>{report.status}</td>
 					<td>
-						<button>View</button>
+						<button className={classes.viewBtn}></button>
 						{/* ideja je da na ovo dugme otvorimo modal sa informacijama, jebemliga */}
 					</td>
 				</tr>

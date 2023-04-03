@@ -1,0 +1,14 @@
+.viewBtn {
+	width: 50px;
+	height: 19px;
+	border: 0;
+	border-left: 1px solid #ccc;
+	background: url(../../assets/view_eye_icon.png) center center no-repeat;
+	background-size: 20px;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		background-color: #ccc;
+	}
+}
