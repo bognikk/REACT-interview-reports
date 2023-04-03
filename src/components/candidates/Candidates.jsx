@@ -7,7 +7,7 @@ import classes from "./Candidates.module.scss";
 
 const Candidates = (props) => {
 	const [candidates, setCandidates] = useState([]);
-	const [filteredCandidates, setfilteredCandidates] = useState([]);
+	const [searchValue, setSearchValue] = useState("");
 
 	useEffect(() => {
 		const fetchCandidates = async () => {
@@ -32,22 +32,29 @@ const Candidates = (props) => {
 		fetchCandidates();
 	}, []);
 
-	const filterCandidates = (value) => {
-		const filtered = candidates.filter((cand) =>
-			cand.name.toLowerCase().includes(value.toLowerCase())
-		);
-
-		if (!value.trim()) {
-			setfilteredCandidates(candidates);
-		} else {
-			setfilteredCandidates(filtered);
-		}
+	const filterValue = (value) => {
+		setSearchValue(value);
 	};
+
+	// const filterCandidates = (value) => {
+	// 	const filtered = candidates.filter((cand) =>
+	// 		cand.name.toLowerCase().includes(value.toLowerCase())
+	// 	);
+
+	// 	if (!value.trim()) {
+	// 		setfilteredCandidates(candidates);
+	// 	} else {
+	// 		setfilteredCandidates(filtered);
+	// 	}
+	// };
 
 	return (
 		<section className={classes.candidates}>
-			<CandidatesFilter onFilter={filterCandidates} />
-			<AvailableCandidates candidatesProp={filteredCandidates.slice(0, 6)} />
+			<CandidatesFilter onFilter={filterValue} />
+			<AvailableCandidates
+				candidatesProp={candidates}
+				searchValue={searchValue}
+			/>
 		</section>
 	);
 };

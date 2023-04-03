@@ -2,18 +2,29 @@ import CandidatesItem from "./CandidateItem";
 
 import "./AvailableCandidates.module.scss";
 
-const AvailableCandidates = ({ candidatesProp }) => {
-	const candidateList = candidatesProp.map((candidate) => {
-		return (
-			<CandidatesItem
-				key={candidate.id}
-				idProp={candidate.id}
-				nameProp={candidate.name}
-				emailProp={candidate.email}
-				avatarProp={candidate.avatar}
-			/>
-		);
-	});
+// const searchCandidates = candidates
+// 	.filter((candidat) =>
+// 		candidat.name.toLowerCase().includes(searchValue.toLowerCase())
+// 	)
+// 	.map((candidat) => <CardCandidates candidat={candidat} key={candidat.id} />);
+
+const AvailableCandidates = ({ candidatesProp, searchValue }) => {
+	const candidateList = candidatesProp
+		.slice(0, 6)
+		.filter((candidat) =>
+			candidat.name.toLowerCase().includes(searchValue.toLowerCase())
+		)
+		.map((candidate) => {
+			return (
+				<CandidatesItem
+					key={candidate.id}
+					idProp={candidate.id}
+					nameProp={candidate.name}
+					emailProp={candidate.email}
+					avatarProp={candidate.avatar}
+				/>
+			);
+		});
 
 	return (
 		<>
